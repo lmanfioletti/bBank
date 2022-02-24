@@ -4,6 +4,7 @@ public class Conta{
     private int agencia;
     private int numero;
     private Cliente cliente;
+    private static int totalContas = 0;
 
     //Constructor
     public Conta(double saldo, int agencia, int numero, Cliente cliente){
@@ -11,6 +12,7 @@ public class Conta{
         setAgencia(agencia);
         setNumero(numero);
         setCliente(cliente);
+        Conta.totalContas++;
     }
 
     //Getters
@@ -28,6 +30,10 @@ public class Conta{
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public static int getTotalContas() {
+        return totalContas;
     }
 
     //Setters

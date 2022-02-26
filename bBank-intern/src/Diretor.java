@@ -1,26 +1,21 @@
 public class Diretor extends Funcionario implements Autenticavel {
 
-    private int senha;
+    private AutenticacaoUtil autenticar;
 
     public Diretor(String nome, String cpf, double salario, int senha){
         super(nome, cpf, salario);
-        this.senha = senha;
+        this.autenticar = new AutenticacaoUtil();
+        autenticar.setSenha(senha);
     }
 
+    @Override
     public void setSenha(int senha) {
-        this.senha = senha;
+        this.autenticar.setSenha(senha);
     }
 
     @Override
     public boolean autentica(int senha) {
-        if(this.senha == senha){
-            System.out.println("Aproved");
-            return true;
-        }
-        else {
-            System.out.println("Dennid");
-            return false;
-        }
+        return this.autenticar.autentica(senha);
     }
     @Override
     public double getBonificacao() {
